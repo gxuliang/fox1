@@ -1,0 +1,105 @@
+{
+    "user": [
+        {
+            "name": "root",
+            "password": "root"
+        },
+        {
+            "name": "admin",
+            "password": "admin"
+        }
+    ],
+    "base": {
+        "name": "IPC200",
+        "lan": "chn"
+    },
+    "timeset": {
+        "datefmt": "y-m-d",
+        "timefmt": "24h",
+        "ntpset": {
+            "enable": false,
+            "serverip": "clock,isc.org",
+            "port": 123,
+            "update": 5
+        }
+    },
+    "tcp-ip": {
+        "name": "NC616v3",
+        "hardware": "lan",
+        "mode": "static",
+        "ipver": "ipv4",
+        "ip": "192.168.2.108",
+        "netmask": "255.255.255.0",
+        "gateway": "192.168.2.1",
+        "dsn": [
+            "8.8.8.8",
+            "9.9.9.9"
+        ]
+    },
+    "Encode":
+        {
+        	"CamGlobal":
+        	{
+        		"Brightness" : 50,
+        		"Contrast" : 50,
+        		"Chromaticity" : 50,
+        		"Saturation" : 50,
+        		"GainMode" : "auto",
+        		"GainUpline" : 30,
+        		"ExposureMode" : "auto",
+        		"ExposureValue" : [0, 4],
+        		"AutoAperture" : true,
+        		"SceneMode" : "auto",
+        		"DNMode" : "auto",
+        		"Revolving": "close"
+        	},
+            "MainFormat": [
+                {
+                    "AudioEnable": true,
+                    "Audio": {
+                        "Compression": "PCM",
+                        "Frequency": 44000
+                    },
+                    "VideoEnable": true,
+                    "Video": {
+                    	"type": "Ordinary",
+                        "Compression": "H.264B",
+                        "PX": "1080P",
+                        "FPS": 25,
+                        "GOP":50,
+                        "StreamMode" : "Fixed",
+                        "Stream" : 4096
+                    }
+                }
+            ],
+            "ExtraFormat": [
+                {
+                    "AudioEnable": true,
+                    "Audio": {
+                        "Compression": "PCM",
+                        "Frequency": 44000
+                    },
+                    "VideoEnable": true,
+                    "Video": {
+                    	"type": "Ordinary",
+                        "Compression": "MJPEG",
+                        "PX" : "D1",
+                        "FPS": 25,
+                        "GOP": 50,
+                        "StreamMode" : "Fixed",
+                        "Stream" : 512
+                    }
+                }
+            ],
+            "SnapFormat": [
+                {
+                    "AudioEnable": false,
+                    "VideoEnable": true,
+                    "Video": {
+                        "Width": 1920,
+                        "Hight": 1080
+                    }
+                }
+            ]
+        }
+}

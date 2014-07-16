@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title>demo</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+  <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap-slider.js" type="text/javascript"></script>
+  <script src="js/ipc.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+  <!--导航栏-->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <!---->
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">IPC200</a>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active" id="nyulan">
+              <a href="#" onclick="onNavShow(1)">预览</a>
+            </li>
+            <li id="nyuntai">
+              <a href="#" onclick="onNavShow(2)">云台</a>
+            </li>
+            <li id="nset">
+              <a href="#" onclick="onNavShow(3)">设置</a>
+            </li>
+            <li id="nalarm">
+              <a href="#" onclick="onNavShow(4)">
+                报警
+                <span class="badge badge-warning">4</span>
+              </a>
+            </li>
+            <li id="nlogout">
+              <a href="#" onclick="onNavShow(5)">注销</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!---->
+
+    <!--预览页面，以后放到单独文件加载-->
+    <div id="yulan" style="position:absolute;top:10%;">
+      <div>
+        <ul class="breadcrumb">
+          <li>
+            <a class="btn btn-primary" href="">主码流</a>
+          </li>
+          <li>
+            <a class="btn" href="">子码流</a>
+          </li>
+          <li></li>
+
+          <div class="hero-unit">
+            <h1>Video Loading...</h1>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <!--云台页面，以后放到单独文件加载-->
+    <div id="yuntai" style="position:absolute;top:10%;">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span10">
+            <div class="hero-unit">
+              <h1>Video Loading...</h1>
+            </div>
+          </div>
+          <div class="span2">云台控制界面</div>
+        </div>
+      </div>
+    </div>
+
+      <!--设置页面，以后放到单独文件加载-->
+      <div id="mset" style="position:absolute;top:10%;">
+
+        <!---->
+        <div class="span2">
+          <ul class="nav nav-list">
+            <li class="nav-header" data-toggle="collapse" data-target="#xjsz">相机设置</li>
+            
+            <li class="active" id="nsxtsx">
+              <a href="#" onclick="onLnavShow(1)">摄像头属性</a>
+            </li>
+            <li id="nsp">
+              <a href="#" onclick="onLnavShow(2)">视频</a>
+            </li>
+            <li>
+              <a href="#">音频</a>
+            </li>
+          
+            <li class="nav-header" data-toggle="collapse" data-target="#wlsz">网络设置</li>
+            <li>
+              <a href="#">TCP/IP</a>
+            </li>
+            <li>
+              <a href="#">连接</a>
+            </li>
+            <li class="nav-header" data-toggle="collapse" data-target="#sjgl">事件管理</li>
+            <li>
+              <a href="#">视频检测</a>
+            </li>
+            <li>
+              <a href="#">报警设置</a>
+            </li>
+            <li>
+              <a href="#">异常处理</a>
+            </li>
+            <li class="nav-header">存储管理</li>
+            <li>
+              <a href="#">时间表</a>
+            </li>
+            <li>
+              <a href="#">存储</a>
+            </li>
+            <li>
+              <a href="#">录像控制</a>
+            </li>
+            <li class="nav-header">系统管理</li>
+
+            <li>
+              <a href="#">本机设置</a>
+            </li>
+            <li>
+              <a href="#">用户管理</a>
+            </li>
+            <li>
+              <a href="#">云台设置</a>
+            </li>
+            <li>
+              <a href="#">出厂默认设置</a>
+            </li>
+            <li>
+              <a href="#">配置导入导出</a>
+            </li>
+            <li>
+              <a href="#">自动维护</a>
+            </li>
+            <li>
+              <a href="#">固件升级</a>
+            </li>
+            <li class="nav-header">系统信息</li>
+            <li>
+              <a href="#">版本信息</a>
+            </li>
+            <li>
+              <a href="#">系统日志</a>
+            </li>
+            <li>
+              <a href="#">在线用户</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--分割线-->
+        <div class="span12" id="sxtsx">
+          <div class="tabbable">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">摄像头属性</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <div>
+                  <div class="container-fluid">
+                    <div class="row-fluid">
+                      <div class="span6" style="background-color: #eeeee0;padding:200px;">Video Loading...</div>
+                      <div class="span6">
+                        <table class="table table-bordered table-striped table-condensed">
+                          <tbody>
+                          <tr>
+                            <td>亮度</td>
+                            
+                            <td>
+                              <input type="text" class="slider" value="" data-slider-min="-20" data-slider-max="20" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round"></td>
+                          </tr>
+                          <tr>
+                            <td>对比度</td>
+                            
+                            <td>
+                              <input type="text" class="slider" value="" data-slider-min="-20" data-slider-max="20" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round"></td>
+                          </tr>
+                          <tr>
+                            <td>饱和度</td>
+                            
+                            <td>
+                              <input type="text" class="slider" value="" data-slider-min="-20" data-slider-max="20" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round"></td>
+                          </tr>
+                          <tr>
+                            <td>锐度</td>
+                            
+                            <td>
+                              <input type="text" class="slider" value="" data-slider-min="-20" data-slider-max="20" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round"></td>
+                          </tr>
+                          <tr>
+                            <td>防闪烁</td>
+                            
+                            <td>
+                              <div class="btn-group" data-toggle="buttons-radio">
+                                <button class="btn">室外</button>
+                                <button class="btn">50HZ</button>
+                                <button class="btn">60HZ</button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>曝光模式</td>
+                            
+                            <td>
+                              <div class="btn-group" data-toggle="buttons-radio">
+                                <button class="btn">自动</button>
+                                <button class="btn">低噪声</button>
+                                <button class="btn">防拖影</button>
+                                <button class="btn">手动</button>
+                              </div>
+                              <br>
+                              <input type="text" class="slider" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[0,5]" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round">
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>增益范围</td>
+                            
+                            <td>
+                              <input type="text" class="slider" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[1,5]" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="hide" data-slider-handle="round"></td>
+                          </tr>
+                          <tr>
+                            <td>自动光圈</td>
+                            
+                            <td>
+                              <button class="btn" data-toggle="button">启用</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>情景模式</td>
+                            
+                            <td>
+                              <div class="btn-group" data-toggle="buttons-radio">
+                                <button class="btn">自动</button>
+                                <button class="btn">晴天</button>
+                                <button class="btn">夜晚</button>
+                                <button class="btn">关闭</button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>日/夜模式</td>
+                            
+                            <td>
+                              <div class="btn-group" data-toggle="buttons-radio">
+                                <button class="btn">自动</button>
+                                <button class="btn">彩色</button>
+                                <button class="btn">黑白</button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>背光补偿</td>
+                            
+                            <td>
+                              <button class="btn" data-toggle="button">启用</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>镜像</td>
+                            
+                            <td>
+                              <button class="btn" data-toggle="button">启用</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>翻转</td>
+                            
+                            <td>
+                              <div class="btn-group" data-toggle="buttons-radio">
+                                <button class="btn">0度</button>
+                                <button class="btn">90度</button>
+                                <button class="btn">180度</button>
+                                <button class="btn">270度</button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--分割线-->
+        <div class="span10" id="sp">
+          <div class="tabbable">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#sp_tab1" data-toggle="tab" onclick="onRefresh()">视频码流</a>
+              </li>
+              <li>
+                <a href="#sp_tab2" data-toggle="tab">图片码流</a>
+              </li>
+              <li>
+                <a href="#sp_tab3" data-toggle="tab">视频叠加</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="sp_tab1">
+                <div>
+                  <div class="container-fluid">
+                    <div class="row-fluid">
+                      <div class="span5">
+                        <div class="alert alert-info">主码流</div>
+                        <table class="table table-bordered table-striped">
+                          
+                          <tbody>
+                            <tr>
+                              <td>编码模式</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">H.264</button>
+                                  <button class="btn">H.264B</button>
+                                  <button class="btn">MJPEG</button>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>分辨率</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">1080P</button>
+                                  <button class="btn">720P</button>
+                                  <button class="btn">VGA</button>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>帧率</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="1" data-slider-max="25" data-slider-step="1" data-slider-value="25" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="round">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>码流控制</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">固定码流</button>
+                                  <button class="btn">可变码流</button>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>码流</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="32" data-slider-max="4096" data-slider-step="1" data-slider-value="2048" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="square">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>I帧间隔</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="25" data-slider-max="150" data-slider-step="1" data-slider-value="50" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="square">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="span5 offset1">
+                        <div class="alert alert-info">子码流</div>
+                        <table class="table table-bordered table-striped">
+                          
+                          <tbody>
+                            <tr>
+                              <td>编码模式</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">H.264</button>
+                                  <button class="btn">H.264B</button>
+                                  <button class="btn">MJPEG</button>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>分辨率</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">D1</button>
+                                  <button class="btn">CIF</button>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td>帧率</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="1" data-slider-max="25" data-slider-step="1" data-slider-value="25" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="round">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>码流控制</td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                  <button class="btn">固定码流</button>
+                                  <button class="btn">可变码流</button>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>码流</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="32" data-slider-max="4096" data-slider-step="1" data-slider-value="2048" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="square">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>I帧间隔</td>
+                              <td>
+                                <input type="text" class="slider" value="" data-slider-min="25" data-slider-max="150" data-slider-step="1" data-slider-value="50" data-slider-orientation="horizontal" data-slider-selection="none"data-slider-tooltip="show" data-slider-handle="square">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane active" id="sp_tab2">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--分割线--> 
+      </div>
+
+      <!--报警页面，以后放到单独文件加载-->
+      <div></div>
+
+</body>
+</html>
