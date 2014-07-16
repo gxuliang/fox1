@@ -16,7 +16,7 @@ public:
 	virtual void ThreadProc() = 0;
 
 
-	/* data */
+	
 };
 
 #endif
