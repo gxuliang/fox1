@@ -123,7 +123,7 @@
 		<ul class="toggle">
 			<li class="icn_new_article" onclick="ongetprinter()"><a href="#view">打印机配置</a></li>
 			<li class="icn_edit_article" onclick=""><a href="#tcpip">网络配置</a></li>
-			<li class="icn_categories"><a href="#bufstatus">缓冲区状态</a></li>
+			<li class="icn_categories" onclick="ongetstate(0)"><a href="#bufstatus">缓冲区状态</a></li>
 			<li class="icn_tags"><a href="#">系统设定</a></li>
 			<li class="icn_tags"><a href="#">指示灯</a></li>
 			<li class="icn_tags"><a href="#">语言</a></li>
@@ -666,7 +666,7 @@
    				</tr>	
    				<tr> 
    					<td></td> 
-    				<td><textarea rows="12"></textarea></td> 
+    				<td><textarea id="pos_buf" rows="12"></textarea></td> 
    					<td></td>  
    				</tr>			
 			</tbody>
@@ -692,14 +692,14 @@
    				</tr>	
    				<tr> 
    					<td></td> 
-    				<td><textarea rows="12"></textarea></td> 
+    				<td><textarea id="tcp_buf" rows="12"></textarea></td> 
    					<td></td>  
    				</tr>			
 			</tbody>
 			</table>
 						</fieldset><div class="clear"></div>
 				</div>
-				<input onclick="ongetprinter()" type="submit" value="刷新">
+				<input onclick="ongetstate(0)" type="submit" value="刷新">
 		</article>
 <div class="clear"></div>
 

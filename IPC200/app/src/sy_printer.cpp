@@ -1,13 +1,49 @@
 #include "sy_printer.h"
 
-IPrinter::IPrinter():m_mutex(CMutex::mutexRecursive)
+
+char Welcome[] = "/******************************/\r\n/*****欢迎使用打印服务系统*****/\r\n";
+IPrinter::IPrinter(int type):m_mutex(CMutex::mutexRecursive)
 {
 	this->rd=0;
 	this->wr=0;
 	this->fullflag=false;
 	this->loopflag= true;
-	this->CreateThread();
+	this->mtype = type;
+	this->put(Welcome, sizeof(Welcome));
+	//this->CreateThread();
 }
+
+int IPrinter::getTypte()
+{
+	return this->ctype;
+}
+
+bool IPrinter::setType(int type)
+{
+	if(type < 0 || type > 3)
+	{
+		return false;
+	}
+
+	this->ctype = type;
+	return true;
+}
+
+int IPrinter::getSpeed()
+{
+	return this->cspeed;
+}
+
+bool IPrinter::setSpeed(int speed)
+{
+	this->cspeed = speed;
+}
+
+bool IPrinter::setIP(char* ip)
+{
+	strncpy(this->cip, ip, sizeof(this->cip));
+}
+
 
 bool IPrinter::put(char* dat,int len)
 {
@@ -72,7 +108,7 @@ void IPrinter::ThreadProc()
 	
 	while(this->loopflag)
 	{
-		while(this->loopflag && this->left() < MAX_LEN)
+		while(this->mtype == 1 &&  this->loopflag && this->left() < MAX_LEN)
 		{
 			printf("%c\n", this->cbuf[this->rd++]);
 			this->rd = this->rd & (MAX_LEN - 1);
@@ -81,6 +117,7 @@ void IPrinter::ThreadProc()
 			m_mutex.Leave();
 			//usleep(1000*500);//测试代码
 		}
+		//读取数据
 		sleep(1);
 	}
 

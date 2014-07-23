@@ -37,7 +37,8 @@ int cgiMain()
 	tcpClient("127.0.0.1", 8086);
 	tcpClientConnect();
 
-	cgiHeaderContentType("text/html;charset=gb2312");
+	//cgiHeaderContentType("text/html;charset=gb2312");
+	cgiHeaderContentType("text/html;charset=utf-8");
 	cgiFormString("method", sendstr, StrLen);
 //
 	if(sendstr[0] != NULL)

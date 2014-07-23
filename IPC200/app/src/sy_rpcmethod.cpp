@@ -114,6 +114,35 @@ bool SYRpc::CgetConfig(const Json::Value& root, Json::Value& response)
 	return true;
 }
 
+#include "sy_printer.h"
+
+extern IPrinter b;
+bool SYRpc::getState(const Json::Value& root, Json::Value& response)
+{
+	CConfigTable table;
+	std::cout << "Receive query: " << root["params"]["name"] << std::endl;
+	std::string name;
+	name = root["params"]["name"].asString();
+	infof("%s", name.c_str());
+	response["id"] = root["id"];
+
+	if(root["params"]["name"] == "Buf")
+	{
+		char dat[MAX_LEN]="";
+		b.showbuf(dat, MAX_LEN);
+		infof("dat is [%s]\n", dat);
+		response["params"]["name"] = name;
+		response["params"]["buf"] = dat;
+		response["result"] = "true";
+		std::cout << "ans " << response << std::endl;
+
+	}
+	
+
+	return true;
+
+
+}
 void replaceConfig(Json::Value& dest, const Json::Value& src, bool appFlag)
 {
 	switch ( src.type() )

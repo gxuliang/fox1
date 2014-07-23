@@ -7,7 +7,7 @@ function getRoot() {
 	   //alert(url.toString());
 	   request.open("POST", url, true);
 	   request.onreadystatechange = updateRoot;
-	   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+	   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 	   var chr = "phone=" + encoded.toString();
 	   request.send(chr.toString());
 	   //alert("chr is :" + chr.toString());
@@ -81,7 +81,7 @@ function rpclogin(name,passwd) {
    //alert(url.toString());
    request.open("POST", url, true);
    request.onreadystatechange = updatelogin;
-   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());
@@ -176,7 +176,7 @@ function ongetprinter() {
    //alert(url.toString());
    request.open("POST", url, true);
    request.onreadystatechange = updateprinter;
-   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());
@@ -197,6 +197,68 @@ function onsetprinter() {
 	rpcsetconfig("Printer", m_js, updatesetviconf);
 }
 
+function updatestate() {
+	//alert(request.readyState);
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			var response = request.responseText.split("|");
+	        var obj = jQuery.parseJSON(response[0].toString());
+	        //alert(obj);
+	     
+	     	var type = obj.params.name.toString();
+	     	//alert(type);
+	        if(obj.result.toString() == "true")
+	        {
+	        	switch(type)
+	        	{
+	        		case "Buf":
+	        			//vat buf = 
+	        			document.getElementById("pos_buf").value = obj.params.buf.toString();
+	        			break;
+	        		default:break;
+	        	}
+		        //var prtype = obj.params.Printer.prtype;
+		        //var prspeed = obj.params.Printer.prspeed;
+		        //var ipaddr = obj.params.Printer.ipaddr;
+		        //var welcomeauto = obj.params.Printer.welcomeauto;
+		        //alert(Saturation);
+		        
+		        //document.getElementById("prtype").value = prtype;
+		        //document.getElementById("prspeed").value = prspeed;
+		        //document.getElementById("ipaddr").value = ipaddr;
+				//document.getElementById("welcomeauto").value = welcomeauto;
+
+
+	        }
+	     }
+
+	}
+}
+
+function ongetstate(type) {
+
+	switch(type)
+	{
+		case 0://缓冲区状态
+			var params = {name:"Buf"};
+			break;
+		default:break;
+	}
+	var head = {id:22,jsonrpc:"2.0",method:"State.getState",session:Session};
+	head.params = params;
+	var encoded = $.toJSON( head );
+
+	var url = "cgi-bin/post.cgi";
+   //alert(url.toString());
+   request.open("POST", url, true);
+   request.onreadystatechange = updatestate;
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+   var chr = "method=" + encoded.toString();
+   //alert(chr.toString());
+   request.send(chr.toString());
+
+}
+
 function ongetcamconf() {
 	var params = {name:"Encode"};
 	var head = {id:22,jsonrpc:"2.0",method:"configManager.getConfig",session:Session};
@@ -210,7 +272,7 @@ function ongetcamconf() {
    //alert(url.toString());
    request.open("POST", url, true);
    request.onreadystatechange = updatecamconf;
-   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());
@@ -230,7 +292,7 @@ function rpcgetconfig(nm, fun) {
    //alert(url.toString());
    request.open("POST", url, true);
    request.onreadystatechange = fun;
-   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());	
@@ -338,7 +400,7 @@ function rpcsetconfig(nm, jsonobj,fun) {
    //alert(url.toString());
    request.open("POST", url, true);
    request.onreadystatechange = fun;
-   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());	
@@ -438,7 +500,7 @@ function onUpgrade(){
 	   //alert(url.toString());
 	   request.open("POST", url, true);
 	   request.onreadystatechange = updateUpgrade;
-	   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gb2312");
+	   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 	   var chr = "phone=" + fname.toString();
 	   request.send(chr.toString());
 	   alert("chr is :" + chr.toString());
