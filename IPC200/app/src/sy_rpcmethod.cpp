@@ -116,7 +116,7 @@ bool SYRpc::CgetConfig(const Json::Value& root, Json::Value& response)
 
 #include "sy_printer.h"
 
-extern IPrinter b;
+extern IPrinter *gPrintIn;
 bool SYRpc::getState(const Json::Value& root, Json::Value& response)
 {
 	CConfigTable table;
@@ -129,7 +129,7 @@ bool SYRpc::getState(const Json::Value& root, Json::Value& response)
 	if(root["params"]["name"] == "Buf")
 	{
 		char dat[MAX_LEN]="";
-		b.showbuf(dat, MAX_LEN);
+		gPrintIn->showbuf(dat, MAX_LEN);
 		infof("dat is [%s]\n", dat);
 		response["params"]["name"] = name;
 		response["params"]["buf"] = dat;

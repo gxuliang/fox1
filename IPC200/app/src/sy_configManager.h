@@ -18,7 +18,7 @@
 #include "Manager/sy_configManager.h"
 
 
-#ifdef WIN32
+#ifndef WIN32
 typedef Json::StyledWriter CConfigWriter;
 #else
 typedef Json::FastWriter CConfigWriter;

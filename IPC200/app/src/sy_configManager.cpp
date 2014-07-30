@@ -161,6 +161,7 @@ int CConfigManager::setConfig(const char* name, const CConfigTable& table, const
 
 	if (strcmp(name, "All") == 0)
 	{
+		tracepoint();
 		if (m_configAll == table)
 		{
 			return ret;
@@ -198,6 +199,7 @@ int CConfigManager::setConfig(const char* name, const CConfigTable& table, const
 
 	if(m_configAll[name] == table)
 	{
+		tracepoint();
 		return ret;
 	}
 
@@ -205,13 +207,16 @@ int CConfigManager::setConfig(const char* name, const CConfigTable& table, const
 
 	//更新全局表格
 	m_configAll[name] = table;;
+	//m_changed = true;
+	m_mutex.Enter();
 	m_changed = true;
-
+	saveFile();
+	m_mutex.Leave();
 	//保存文件,优先处理延迟保存
-	if (!(ret & applyDelaySave))
-	{
-		saveFile();
-	}
+	//if (!(ret & applyDelaySave))
+	//{
+	//	saveFile();
+	//}
 /*
 	if (!(ret & IConfigManager::applyWithoutLog))
 	{

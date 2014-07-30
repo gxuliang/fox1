@@ -142,20 +142,39 @@ function updateprinter() {
 		if (request.status == 200) {
 			var response = request.responseText.split("|");
 	        var obj = jQuery.parseJSON(response[0].toString());
-	        //alert(obj);
-	        if(obj.result.toString() == "true")
+	        for(var key in obj.params)
 	        {
-		        var prtype = obj.params.Printer.prtype;
-		        var prspeed = obj.params.Printer.prspeed;
-		        var ipaddr = obj.params.Printer.ipaddr;
-		        var welcomeauto = obj.params.Printer.welcomeauto;
-		        //alert(Saturation);
-		        
-		        document.getElementById("prtype").value = prtype;
-		        document.getElementById("prspeed").value = prspeed;
-		        document.getElementById("ipaddr").value = ipaddr;
-				document.getElementById("welcomeauto").value = welcomeauto;
+	        	if(obj.result.toString() == "true")
+	        	{
+	        		//var tmp = obj.params;
+	        		//alert(tmp[key].prtype);
 
+	        		if(key == "PrinterIn")
+	        		{
+				        var prtype = obj.params[key].prtype;
+				        var prspeed = obj.params[key].prspeed;
+				        //var ipaddr = obj.params.Printer.ipaddr;
+				        //var welcomeauto = obj.params.Printer.welcomeauto;
+				        //alert(Saturation);
+				        
+				        document.getElementById("iprtype").value = prtype;
+				        document.getElementById("iprspeed").value = prspeed;
+				        //document.getElementById("ipaddr").value = ipaddr;
+						//document.getElementById("welcomeauto").value = welcomeauto;
+					}
+					else
+					{
+						var prtype = obj.params[key].prtype;
+				        var prspeed = obj.params[key].prspeed;
+				        var welcomeauto = obj.params[key].welcomeauto;
+				        document.getElementById("oprtype").value = prtype;
+				        document.getElementById("oprspeed").value = prspeed;
+				        //document.getElementById("ipaddr").value = ipaddr;
+						document.getElementById("owelcomeauto").value = welcomeauto;
+
+					}
+
+	        	}
 
 	        }
 	     }
@@ -163,8 +182,16 @@ function updateprinter() {
 	}
 }
 
-function ongetprinter() {
-	var params = {name:"Printer"};
+function ongetprinter(type) {
+	if(type == 0)
+	{
+		nm = "PrinterIn";
+	}
+	else
+	{
+		nm = "PrinterOut";
+	}
+	var params = {name:nm};
 	var head = {id:22,jsonrpc:"2.0",method:"configManager.getConfig",session:Session};
 	head.params = params;
 	var encoded = $.toJSON( head );
@@ -183,18 +210,34 @@ function ongetprinter() {
 	
 }
 
-function onsetprinter() {
-	var c_prtype = get_selectop('prtype'); 
-	var c_prspeed = get_selectop('prspeed'); 
-	var c_welcomeauto = get_selectop('welcomeauto'); 
-	var c_ipaddr = document.getElementById('ipaddr').value; 
-	
+function onsetprinter(type) {
+	if(type == 0)
+	{
+		var c_prtype = get_selectop('iprtype'); 
+		var c_prspeed = get_selectop('iprspeed'); 
+		//var c_welcomeauto = get_selectop('welcomeauto'); 
+		//var c_ipaddr = document.getElementById('ipaddr').value; 
+
+		var m_js = {prtype:c_prtype, prspeed:c_prspeed};
+		rpcsetconfig("PrinterIn", m_js, updatesetviconf);
+
+	}
+	else
+	{
+		var c_prtype = get_selectop('oprtype'); 
+		var c_prspeed = get_selectop('oprspeed'); 
+		var c_welcomeauto = get_selectop('owelcomeauto'); 
+		//var c_ipaddr = document.getElementById('ipaddr').value; 
+
+		var m_js = {prtype:c_prtype, prspeed:c_prspeed, welcomeauto:c_welcomeauto};
+		rpcsetconfig("PrinterOut", m_js, updatesetviconf);
+
+	}
 	
 	//alert(c_mGOP);
-	var m_js = {prtype:c_prtype, prspeed:c_prspeed, welcomeauto:c_welcomeauto, ipaddr:c_ipaddr};
+	
 
 
-	rpcsetconfig("Printer", m_js, updatesetviconf);
 }
 
 function updatestate() {

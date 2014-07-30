@@ -1,111 +1,111 @@
 {
-    "user": [
-        {
-            "name": "root",
-            "password": "root"
-        },
-        {
-            "name": "admin",
-            "password": "admin"
-        }
-    ],
-    "base": {
-        "name": "IPC200",
-        "lan": "chn",
-        "sw": "1.0",
-        "hw": "1.1"
-    },
-    "Printer": {
-        "prtype":"ck",
-        "prspeed":"ms",
-        "ipaddr":"192.168.1.100",
-        "welcomeauto":"wyes"
-    },
-    "timeset": {
-        "datefmt": "y-m-d",
-        "timefmt": "24h",
-        "ntpset": {
-            "enable": false,
-            "serverip": "clock,isc.org",
-            "port": 123,
-            "update": 5
-        }
-    },
-    "tcp-ip": {
-        "name": "NC616v3",
-        "hardware": "lan",
-        "mode": "static",
-        "ipver": "ipv4",
-        "ip": "192.168.2.108",
-        "netmask": "255.255.255.0",
-        "gateway": "192.168.2.1",
-        "dsn": [
-            "8.8.8.8",
-            "9.9.9.9"
-        ]
-    },
-    "Encode":
-        {
-        	"CamGlobal":
-        	{
-        		"Brightness" : 50,
-        		"Contrast" : 50,
-        		"Chromaticity" : 50,
-        		"Saturation" : 50,
-        		"GainMode" : "auto",
-        		"GainUpline" : 30,
-        		"ExposureMode" : "auto",
-        		"ExposureValue" : [0, 4],
-        		"AutoAperture" : true,
-        		"SceneMode" : "auto",
-        		"DNMode" : "auto",
-        		"Revolving": "close"
-        	},
-            "MainFormat": [
-                {
-                    "AudioEnable": true,
-                    "Audio": {
-                        "Compression": "PCM",
-                        "Frequency": 44000
-                    },
-                    "VideoEnable": true,
-                    "Video": {
-                        "Compression": "H.264B",
-                        "PX": "1080P",
-                        "FPS": 25,
-                        "GOP":50,
-                        "StreamMode" : "Fixed",
-                        "Stream" : 4096
-                    }
-                }
-            ],
-            "ExtraFormat": [
-                {
-                    "AudioEnable": true,
-                    "Audio": {
-                        "Compression": "PCM",
-                        "Frequency": 44000
-                    },
-                    "VideoEnable": true,
-                    "Video": {
-                        "Compression": "MJPEG",
-                        "PX" : "D1",
-                        "FPS": 25,
-                        "GOP": 50,
-                        "StreamMode" : "Fixed",
-                        "Stream" : 512
-                    }
-                }
-            ],
-            "SnapFormat": [
-                {
-                    "AudioEnable": false,
-                    "VideoEnable": true,
-                    "Video": {
-                        "Width": 1920,
-                        "Hight": 1080
-                    }
-                }
-            ]
-        }
+   "ALL" : null,
+   "Encode" : {
+      "CamGlobal" : {
+         "AutoAperture" : true,
+         "Brightness" : 50,
+         "Chromaticity" : 50,
+         "Contrast" : 50,
+         "DNMode" : "auto",
+         "ExposureMode" : "auto",
+         "ExposureValue" : [ 0, 4 ],
+         "GainMode" : "auto",
+         "GainUpline" : 30,
+         "Revolving" : "close",
+         "Saturation" : 50,
+         "SceneMode" : "auto"
+      },
+      "ExtraFormat" : [
+         {
+            "Audio" : {
+               "Compression" : "PCM",
+               "Frequency" : 44000
+            },
+            "AudioEnable" : true,
+            "Video" : {
+               "Compression" : "MJPEG",
+               "FPS" : 25,
+               "GOP" : 50,
+               "PX" : "D1",
+               "Stream" : 512,
+               "StreamMode" : "Fixed"
+            },
+            "VideoEnable" : true
+         }
+      ],
+      "MainFormat" : [
+         {
+            "Audio" : {
+               "Compression" : "PCM",
+               "Frequency" : 44000
+            },
+            "AudioEnable" : true,
+            "Video" : {
+               "Compression" : "H.264B",
+               "FPS" : 25,
+               "GOP" : 50,
+               "PX" : "1080P",
+               "Stream" : 4096,
+               "StreamMode" : "Fixed"
+            },
+            "VideoEnable" : true
+         }
+      ],
+      "SnapFormat" : [
+         {
+            "AudioEnable" : false,
+            "Video" : {
+               "Hight" : 1080,
+               "Width" : 1920
+            },
+            "VideoEnable" : true
+         }
+      ]
+   },
+   "PrinterIn" : {
+      "prspeed" : "ms",
+      "prtype" : "ck"
+   },
+   "PrinterOut" : {
+      "prspeed" : "ms",
+      "prtype" : "bk",
+      "welcomeauto" : "wyes"
+   },
+   "base" : {
+      "hw" : "1.1",
+      "lan" : "chn",
+      "mode" : "test",
+      "name" : "IPC200",
+      "sw" : "1.0"
+   },
+   "tcp-ip" : {
+      "dsn" : [ "8.8.8.8", "9.9.9.9" ],
+      "gateway" : "192.168.2.1",
+      "hardware" : "lan",
+      "ip" : "192.168.2.108",
+      "ipver" : "ipv4",
+      "mode" : "static",
+      "name" : "NC616v3",
+      "netmask" : "255.255.255.0"
+   },
+   "timeset" : {
+      "datefmt" : "y-m-d",
+      "ntpset" : {
+         "enable" : false,
+         "port" : 123,
+         "serverip" : "clock,isc.org",
+         "update" : 5
+      },
+      "timefmt" : "24h"
+   },
+   "user" : [
+      {
+         "name" : "root",
+         "password" : "root"
+      },
+      {
+         "name" : "admin",
+         "password" : "admin"
+      }
+   ]
 }

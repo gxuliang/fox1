@@ -2,15 +2,18 @@
 
 
 char Welcome[] = "/******************************/\r\n/*****欢迎使用打印服务系统*****/\r\n";
-IPrinter::IPrinter(int type):m_mutex(CMutex::mutexRecursive)
+IPrinter::IPrinter(int type, CConfigTable& tb):m_mutex(CMutex::mutexRecursive)
 {
 	this->rd=0;
 	this->wr=0;
 	this->fullflag=false;
 	this->loopflag= true;
 	this->mtype = type;
-	this->put(Welcome, sizeof(Welcome));
-	//this->CreateThread();
+	if(this->mtype == 1)//测试的是输出打印机
+	{
+		this->put(Welcome, sizeof(Welcome));
+	}
+	this->CreateThread();
 }
 
 int IPrinter::getTypte()
@@ -105,20 +108,26 @@ int IPrinter::showbuf(char* dat, int len)
 
 void IPrinter::ThreadProc()
 {
-	
-	while(this->loopflag)
+	if(this->mtype == 0)//输入，需要读取输入打印机数据和状态
 	{
-		while(this->mtype == 1 &&  this->loopflag && this->left() < MAX_LEN)
+
+	}
+	else//输出，给打印机发送数据时，还需要读取打印机的状态
+	{
+		while(this->loopflag)
 		{
-			printf("%c\n", this->cbuf[this->rd++]);
-			this->rd = this->rd & (MAX_LEN - 1);
-			m_mutex.Enter();
-			this->fullflag=false;// 待加锁处理
-			m_mutex.Leave();
-			//usleep(1000*500);//测试代码
+			while(this->mtype == 1 &&  this->loopflag && this->left() < MAX_LEN)
+			{
+				printf("%c\n", this->cbuf[this->rd++]);
+				this->rd = this->rd & (MAX_LEN - 1);
+				m_mutex.Enter();
+				this->fullflag=false;// 待加锁处理
+				m_mutex.Leave();
+				//usleep(1000*500);//测试代码
+			}
+			//读取数据
+			sleep(1);
 		}
-		//读取数据
-		sleep(1);
 	}
 
 }

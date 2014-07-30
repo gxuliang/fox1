@@ -121,7 +121,8 @@
 		<hr/>
 		<h3>设备设置</h3>
 		<ul class="toggle">
-			<li class="icn_new_article" onclick="ongetprinter()"><a href="#view">打印机配置</a></li>
+			<li class="icn_new_article" onclick="ongetprinter(0)"><a href="#PrintInView">输入打印机配置</a></li>
+			<li class="icn_new_article" onclick="ongetprinter(1)"><a href="#PrintOutView">输出打印机配置</a></li>
 			<li class="icn_edit_article" onclick=""><a href="#tcpip">网络配置</a></li>
 			<li class="icn_categories" onclick="ongetstate(0)"><a href="#bufstatus">缓冲区状态</a></li>
 			<li class="icn_tags"><a href="#">系统设定</a></li>
@@ -703,15 +704,15 @@
 		</article>
 <div class="clear"></div>
 
-<article class="module width_full" id="view">
-			<header><h3>打印机设置</h3>
+<article class="module width_full" id="PrintInView">
+			<header><h3>输入打印机设置</h3>
 			</header>
 			<table class="tablesorter" cellspacing="0"> 
 			<tbody>
 				<tr> 
     				<td>POS打印机类型</td> 
     				<td>
-	    				<select id = "prtype" style="width:50%;">
+	    				<select id = "iprtype" style="width:50%;">
 							<option value="bk">并口打印机</option>
 							<option value="ck">串口打印机</option>
 						</select>
@@ -721,7 +722,58 @@
 				<tr> 
    					<td>并口打印机速度</td> 
     				<td>
-	    				<select id = "prspeed" style="width:50%;">
+	    				<select id = "iprspeed" style="width:50%;">
+							<option value="hs">高速</option>
+							<option value="ms">中速</option>
+							<option value="ls">低速</option>
+						</select>
+    				</td> 
+   					<td></td> 
+   				</tr>	
+   				<tr> 
+   					<td>以太网口IP地址</td> 
+    				<td><input id="ipaddr" type="text" style="width:50%;" value=""></td> 
+   					<td></td> 
+   				</tr>	
+   				<tr> 
+   					<td></td> 
+    				<td>
+					</td> 
+   					<td></td> 
+   				</tr>	
+				<tr> 
+    				<td></td> 
+    				<td></td> 
+    				<td>
+	   					<input type="submit" value="恢复默认">
+	   					<input type="submit" value="确定" class="alt_btn" onclick="onsetprinter(1)">
+	   					<input onclick="ongetprinter(0)" type="submit" value="刷新">
+    				</td> 
+				</tr>  			
+			</tbody>
+			</table>
+		</article>
+	<div class="clear"></div>
+
+<article class="module width_full" id="PrintOutView">
+			<header><h3>输出打印机设置</h3>
+			</header>
+			<table class="tablesorter" cellspacing="0"> 
+			<tbody>
+				<tr> 
+    				<td>POS打印机类型</td> 
+    				<td>
+	    				<select id = "oprtype" style="width:50%;">
+							<option value="bk">并口打印机</option>
+							<option value="ck">串口打印机</option>
+						</select>
+    				</td> 
+   					<td></td> 
+				</tr> 
+				<tr> 
+   					<td>并口打印机速度</td> 
+    				<td>
+	    				<select id = "oprspeed" style="width:50%;">
 							<option value="hs">高速</option>
 							<option value="ms">中速</option>
 							<option value="ls">低速</option>
@@ -737,7 +789,7 @@
    				<tr> 
    					<td>开机是否自动打印欢迎页面</td> 
     				<td>
-    					<select id = "welcomeauto" style="width:50%;">
+    					<select id = "owelcomeauto" style="width:50%;">
 							<option value="wyes">是</option>
 							<option value="wno">否</option>
 						</select>
@@ -749,8 +801,8 @@
     				<td></td> 
     				<td>
 	   					<input type="submit" value="恢复默认">
-	   					<input type="submit" value="确定" class="alt_btn" onclick="onsetprinter()">
-	   					<input onclick="ongetprinter()" type="submit" value="刷新">
+	   					<input type="submit" value="确定" class="alt_btn" onclick="onsetprinter(1)">
+	   					<input onclick="ongetprinter(1)" type="submit" value="刷新">
     				</td> 
 				</tr>  			
 			</tbody>
