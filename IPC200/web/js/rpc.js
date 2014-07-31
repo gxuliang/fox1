@@ -50,6 +50,7 @@ function updatelogin() {
 					
 					$(".tab_local").hide(); //Hide all content
 					$(".tab_usr").hide(); //Hide all usr
+					$(".tab_printview").hide(); //Hide all usr
 					$("ul.tabs li:first").addClass("active").show(); //Activate first tab
 					$(".tab_local:first").show(); //Show first tab content
 					$(".width_3_quarter").hide();
@@ -58,6 +59,8 @@ function updatelogin() {
 				
 					$("#local").show();
 					$("#resOK").hide();
+
+					ongetconfig('base');
 	        }
 	        else
 	        {
@@ -236,8 +239,66 @@ function onsetprinter(type) {
 	
 	//alert(c_mGOP);
 	
+}
 
+function updateConfig() {
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			var response = request.responseText.split("|");
+	        var obj = jQuery.parseJSON(response[0].toString());
+	        for(var key in obj.params)
+	        {
+	        	if(obj.result.toString() == "true")
+	        	{
+	        		//var tmp = obj.params;
+	        		//alert(tmp[key].prtype);
+	        		//alert(key);
+	        		switch(key)
+	        		{
+	        			case 'base':
+	        				
+	        				//var hw = obj.params[key].hw;
+	        				//alert(hw);
+	        				//var lan = obj.params[key].lan;
+	        				//var mode = obj.params[key].mode;
+	        				//var name = obj.params[key].name;
+	        				//var sw = obj.params[key].sw;
+	        				document.getElementById("hw").innerText = obj.params[key].hw;
+	        				document.getElementById("sw").innerText = obj.params[key].sw;
+	       				    document.getElementById("maclan").value = obj.params[key].lan;
+	       				    document.getElementById("workmode").value = obj.params[key].mode;
+	       				    document.getElementById("macname").value = obj.params[key].name;
+	        				break;
+	        			default:
+	        				break;
+	        		}
+	        		
+	        	}
 
+	        }
+	     }
+
+	}
+}
+
+function ongetconfig(key) {
+	//alert(key);
+
+	var params = {name:key};
+	var head = {id:22,jsonrpc:"2.0",method:"configManager.getConfig",session:Session};
+	head.params = params;
+	var encoded = $.toJSON( head );
+
+	
+	
+	var url = "cgi-bin/post.cgi";
+   //alert(url.toString());
+   request.open("POST", url, true);
+   request.onreadystatechange = updateConfig;
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+   var chr = "method=" + encoded.toString();
+   //alert(chr.toString());
+   request.send(chr.toString());
 }
 
 function updatestate() {
@@ -423,7 +484,9 @@ function updatesetviconf() {
 	        //alert(obj);
 	        if(obj.result.toString() == "true")
 	        {
-	        	alert("ok");
+	        	//alert("ok");
+	        	$("#resOK").show();
+         		$("#resOK").hide(2000);
 	        }
 	     }
 

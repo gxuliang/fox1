@@ -44,6 +44,7 @@ $(document).ready(function() {
 		$(this).addClass("active"); //Add "active" class to selected tab
 		$(".tab_local").hide(); //Hide all tab content
 		$(".tab_usr").hide(); //Hide all tab usr
+		$(".tab_printview").hide();
 
 		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active ID content
@@ -59,7 +60,7 @@ $(document).ready(function() {
 		$(".width_full").hide();
 		$(".tab_local").hide(); //Hide all content
 		$(".tab_usr").hide(); //Hide all usr
-
+		$(".tab_printview").hide();
 
 		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active ID content		
