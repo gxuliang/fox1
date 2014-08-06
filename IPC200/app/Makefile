@@ -8,7 +8,9 @@
 #	Revisions:		Year-Month-Day  SVN-Author  Modification
 #
 
-GCC = g++
+include ../CONFIG
+
+GCC = $(CROSS)g++
 
 EXEC = ../Bin/app
 
@@ -17,8 +19,13 @@ INC = ./inc/
 COM_INC = ../
 OBJ = ./obj/
 
-LIBS = ./libs/libjson.a	\
-		./libs/libjsonrpc.a	\
+ifeq ($(CROSS), )
+	PLAT = pc
+else
+	PLAT = arm
+endif
+LIBS = ./libs/$(PLAT)/libjson.a	\
+		./libs/$(PLAT)/libjsonrpc.a	\
 		
 		
 OBJS = 	$(OBJ)sy_semaphore.o \
@@ -36,7 +43,7 @@ OBJS = 	$(OBJ)sy_semaphore.o \
 				
 				
 $(OBJ)%.o: $(SRC)/%.cpp
-	$(GCC) -I$(INC) -I$(COM_INC) -c -o $(OBJ)$*.o $<
+	$(GCC) -g -I$(INC) -I$(COM_INC) -c -o $(OBJ)$*.o $<
 	
 default:	$(OBJS)
 	$(GCC) -O0 -o $(EXEC) $(OBJS) $(LIBS) -lpthread 

@@ -52,6 +52,7 @@ function updatelogin() {
 					$(".tab_usr").hide(); //Hide all usr
 					$(".tab_printview").hide(); //Hide all usr
 					$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+					$("#tab_local li:first").addClass("active").show(); //Activate first tab
 					$(".tab_local:first").show(); //Show first tab content
 					$(".width_3_quarter").hide();
 					$(".width_full").hide();
@@ -318,6 +319,8 @@ function updatestate() {
 	        		case "Buf":
 	        			//vat buf = 
 	        			document.getElementById("pos_buf").value = obj.params.buf.toString();
+						document.getElementById("pos_len").innerText = "待处理字节：" + obj.params.len.toString() + "("
+												+ (obj.params.pencent/100).toString() + "%)";
 	        			break;
 	        		default:break;
 	        	}
@@ -341,6 +344,7 @@ function updatestate() {
 
 function ongetstate(type) {
 
+	/*
 	switch(type)
 	{
 		case 0://缓冲区状态
@@ -348,6 +352,9 @@ function ongetstate(type) {
 			break;
 		default:break;
 	}
+	*/
+
+	var params = {name:type};
 	var head = {id:22,jsonrpc:"2.0",method:"State.getState",session:Session};
 	head.params = params;
 	var encoded = $.toJSON( head );
@@ -360,7 +367,6 @@ function ongetstate(type) {
    var chr = "method=" + encoded.toString();
    //alert(chr.toString());
    request.send(chr.toString());
-
 }
 
 function ongetcamconf() {

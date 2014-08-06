@@ -1,4 +1,4 @@
-#include ../CONFIG
+include ../CONFIG
 
 GCC = $(CROSS)gcc
 EXEC = post.cgi
@@ -6,7 +6,13 @@ SRC = ./src/
 OBJ = ./obj/
 INC	=./include/
 
-LIBS = ./libs/libcgic.a
+ifeq ($(CROSS), )
+	PLAT = PC
+else
+	PLAT =arm
+endif
+
+LIBS = ./libs/$(PLAT)/libcgic.a
 OBJS	=						\
 		$(OBJ)main.o			\
 

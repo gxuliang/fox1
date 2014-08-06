@@ -123,7 +123,7 @@ void IPrinter::ThreadProc()
 				m_mutex.Enter();
 				this->fullflag=false;// 待加锁处理
 				m_mutex.Leave();
-				//usleep(1000*500);//测试代码
+				usleep(1000*1000);//测试代码
 			}
 			//读取数据
 			sleep(1);

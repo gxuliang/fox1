@@ -21,7 +21,7 @@ const char * defaultPath = "Default";
 const char * EncodewPath = "/run/avfifo_w";
 const char * EncoderPath = "/run/avfifo_r";
 const char * MediaConfigPath = "Mediacfg";
-IPrinter *gPrintIn=NULL;
+IPrinter *gPrintOut=NULL;
 //IPrinter gPrintOut;
 
 
@@ -36,9 +36,9 @@ int main(int argc, char* argv[])
 	INetRpc::instance()->start();
 
 	IPrinter printIn = IPrinter(0, aConfig["PrinterIn"]);//a=打印机输入，b=打印机输出
-	gPrintIn = &printIn;
 	IPrinter printOut = IPrinter(1, aConfig["PrinterOut"]);
-	
+	gPrintOut = &printOut;
+
 
 	CSemaphore sem;
 	sem.Pend();

@@ -72,6 +72,7 @@ $(document).ready(function() {
 		$(bb).addClass("active").show(); //Activate first tab
 		$(aa).show(); //Show first tab content
 		
+		window.setInterval("ongetstate('Buf')",1000);
 		
 		return false;
 	});

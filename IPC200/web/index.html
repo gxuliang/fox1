@@ -136,7 +136,7 @@
 			<li class="icn_edit_article" onclick="">
 				<a href="#tcpip">网络配置</a>
 			</li>
-			<li class="icn_categories" onclick="ongetstate(0)">
+			<li class="icn_categories" onclick="ongetstate('Buf')">
 				<a href="#bufstatus">缓冲区状态</a>
 			</li>
 			<li class="icn_new_article" onclick="ongetconfig('base')">
@@ -883,7 +883,7 @@
 							<tr>
 								<td></td>
 								<td>
-									<label>待处理字节：0(0%)</label>
+									<label id="pos_len">待处理字节：0(0%)</label>
 								</td>
 								<td></td>
 							</tr>
@@ -914,7 +914,7 @@
 							<tr>
 								<td></td>
 								<td>
-									<label>待处理字节：0(0%)</label>
+									<label id="tcp_len">待处理字节：0(0%)</label>
 								</td>
 								<td></td>
 							</tr>
@@ -935,7 +935,7 @@
 				</fieldset>
 				<div class="clear"></div>
 			</div>
-			<input onclick="ongetstate(0)" type="submit" value="刷新"></article>
+			</article>
 		<div class="clear"></div>
 
 		<article class="module width_full" id="camconf">
