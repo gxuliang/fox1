@@ -30,10 +30,11 @@ int main(int argc, char* argv[])
 	infof("app start!\n");
 	CConfigTable aConfig;
 	IConfigManager::config(mainPath, defaultPath);
-	IConfigManager::instance()->getConfig("ALL", aConfig);
+	IConfigManager::instance()->getConfig("All", aConfig);
 	IUser::instance();
 	//ILog::instance();
 	INetRpc::instance()->start();
+		
 
 	IPrinter printIn = IPrinter(0, aConfig["PrinterIn"]);//a=打印机输入，b=打印机输出
 	IPrinter printOut = IPrinter(1, aConfig["PrinterOut"]);

@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//inc/Manager/sy_configManager.h=UTF-8
+encoding//inc/Manager/sy_file.h=UTF-8
+encoding//inc/base/sy_guard.h=UTF-8
+encoding//inc/base/sy_mutex.h=UTF-8
+encoding//src/sy_configManager.cpp=UTF-8
+encoding//src/sy_file.cpp=UTF-8
+encoding//src/sy_file.h=UTF-8

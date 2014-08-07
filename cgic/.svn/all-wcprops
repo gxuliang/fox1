@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 24
+/svn/web/!svn/ver/1/cgic
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/web/!svn/ver/1/cgic/license.txt
+END
+capture
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/web/!svn/ver/1/cgic/capture
+END
+capture.c
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/web/!svn/ver/1/cgic/capture.c
+END
+下载说明.htm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/web/!svn/ver/1/cgic/%E4%B8%8B%E8%BD%BD%E8%AF%B4%E6%98%8E.htm
+END
+cgic.c
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/web/!svn/ver/1/cgic/cgic.c
+END
+cgictest.c
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/web/!svn/ver/1/cgic/cgictest.c
+END
+cgictest.cgi
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/web/!svn/ver/1/cgic/cgictest.cgi
+END
+cgic.html
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/web/!svn/ver/1/cgic/cgic.html
+END
+support.txt
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/web/!svn/ver/1/cgic/support.txt
+END
+cgic.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/web/!svn/ver/1/cgic/cgic.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/web/!svn/ver/1/cgic/Makefile
+END

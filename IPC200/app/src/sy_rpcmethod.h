@@ -53,6 +53,7 @@ class SYRpc
     bool MstopMedia(const Json::Value& root, Json::Value& response);
     bool MCtrlMedia(const Json::Value& root, Json::Value& response);
     bool getState(const Json::Value& root, Json::Value& response);
+    bool SendCmd(const Json::Value& root, Json::Value& response);
 
 };
 

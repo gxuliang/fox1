@@ -7,7 +7,7 @@
    "PrinterOut" : {
       "prspeed" : "hs",
       "prtype" : "bk",
-      "welcomeauto" : "wyes"
+      "welcomeauto" : "wno"
    },
    "base" : {
       "hw" : "1.1",

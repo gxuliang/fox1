@@ -5,8 +5,10 @@
 	<meta charset="utf-8"/>
 	<title>Dashboard I Admin Panel</title>
 
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/login.css" type="text/css" media="screen" />
+	
 
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
@@ -21,6 +23,7 @@
 	<script src="js/rpc.js" type="text/javascript"></script>
 	<script src="js/sy_ready.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>
 
 	<script type="text/javascript">
@@ -83,8 +86,8 @@
 	<div id="flogin">
 		<h1 id= "h1login">Log In</h1>
 		<fieldset id="inputs">
-			<input id="username" type="text" placeholder="Username" autofocus required onkeypress="keyevent(event)">
-			<input id="password" type="password" placeholder="Password" required onkeypress="keyevent(event)"></fieldset>
+			<input id="username" type="text" value="admin" placeholder="Username" autofocus required onkeypress="keyevent(event)">
+			<input id="password" type="password" value="admin" placeholder="Password" required onkeypress="keyevent(event)"></fieldset>
 		<fieldset id="actions">
 			<input type="submit" id="submit" value="Log in" onclick="onLogin()"></fieldset>
 
@@ -136,7 +139,7 @@
 			<li class="icn_edit_article" onclick="">
 				<a href="#tcpip">网络配置</a>
 			</li>
-			<li class="icn_categories" onclick="ongetstate('Buf')">
+			<li class="icn_categories" onclick="ongetstateTimeOut()">
 				<a href="#bufstatus">缓冲区状态</a>
 			</li>
 			<li class="icn_new_article" onclick="ongetconfig('base')">
@@ -200,15 +203,15 @@
 				<h3 class="tabs_involved">打印机设置</h3>
 				<ul class="tabs" id="tab_printview">
 					<li>
-						<a href="#tab3" onclick="ongetprinter(0)">输入</a>
+						<a href="#tab4" onclick="ongetprinter(0)">输入</a>
 					</li>
 					<li>
-						<a href="#tab4" onclick="ongetprinter(1)">输出</a>
+						<a href="#tab5" onclick="ongetprinter(1)">输出</a>
 					</li>
 				</ul>
 			</header>
 			<div class="tab_container">
-				<div id="tab3" class="tab_printview">
+				<div id="tab4" class="tab_printview">
 					<table class="tablesorter" cellspacing="0">
 						<tbody>
 							<tr>
@@ -256,7 +259,7 @@
 				</div>
 				<!-- end of #printIn -->
 
-				<div id="tab4" class="tab_printview">
+				<div id="tab5" class="tab_printview">
 					<table class="tablesorter" cellspacing="0">
 						<tbody>
 							<tr>
@@ -326,6 +329,9 @@
 					</li>
 					<li>
 						<a href="#tab2">时间设置</a>
+					</li>
+					<li>
+						<a href="#tab3">工作模式</a>
 					</li>
 				</ul>
 			</header>
@@ -526,6 +532,35 @@
 
 				</div>
 				<!-- end of #tab2 -->
+
+				<div id="tab3" class="tab_local">
+					<table class="tablesorter" cellspacing="0">
+						<tbody>
+							<tr>
+								<td>
+									<li></li>
+								</td>
+								<td></td>
+								<td>
+									<textarea id="test_buf" rows="12" cols="70"></textarea>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<input type="submit" value="发送" class="alt_btn" onclick="sendCmd('TestMsg');">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- end of #tab3 -->
 
 			</div>
 			<!-- end of .tab_container -->
@@ -889,7 +924,11 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td>"进度条"</td>
+								<td>
+									<div class="progress">
+										<div class="progress-bar" id="pos_progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" min-width:"20px">100%</div>
+									</div>
+								</td>
 								<td></td>
 							</tr>
 							<tr>
@@ -935,7 +974,7 @@
 				</fieldset>
 				<div class="clear"></div>
 			</div>
-			</article>
+		</article>
 		<div class="clear"></div>
 
 		<article class="module width_full" id="camconf">

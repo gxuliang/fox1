@@ -17,7 +17,7 @@ public:
 	bool setSpeed(int speed);
 	bool setIP(char* ip);
 	IPrinter(int type, CConfigTable& tb);//0-输入 1-输出 
-	bool put(char* dat,int len);//向缓冲区写入数据
+	bool put(const char* dat,int len);//向缓冲区写入数据
 	int left(void);//剩余缓冲区大小
 	int showbuf(char* dat, int len);//显示缓冲区内容，dat由调用者申请，并提供最大长度，返回实际长度
 	

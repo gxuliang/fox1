@@ -1,0 +1,205 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Accept	jsonrpc_tcpserver.cpp	/^    bool TcpServer::Accept()$/;"	f	class:Json::Rpc::TcpServer
+AddMethod	jsonrpc_handler.cpp	/^    void Handler::AddMethod(CallbackMethod* method)$/;"	f	class:Json::Rpc::Handler
+AddMethod	jsonrpc_server.cpp	/^    void Server::AddMethod(CallbackMethod* method)$/;"	f	class:Json::Rpc::Server
+Bind	jsonrpc_server.cpp	/^    bool Server::Bind()$/;"	f	class:Json::Rpc::Server
+Call	jsonrpc_handler.h	/^        virtual bool Call(const Json::Value& msg, Json::Value& response)$/;"	f	class:Json::Rpc::RpcMethod
+Call	system.cpp	/^  DWORD WINAPI Thread::Call(LPVOID arg)$/;"	f	class:System::Thread
+Call	system.cpp	/^  void* Thread::Call(void* arg)$/;"	f	class:System::Thread
+Call	system.h	/^      virtual void* Call()$/;"	f	class:System::ThreadArgImpl
+CallbackMethod	jsonrpc_handler.h	/^    class CallbackMethod$/;"	c	namespace:Json::Rpc
+Check	jsonrpc_handler.cpp	/^    bool Handler::Check(const Json::Value& root, Json::Value& error)$/;"	f	class:Json::Rpc::Handler
+Client	jsonrpc_client.cpp	/^    Client::Client(const std::string& address, uint16_t port)$/;"	f	class:Json::Rpc::Client
+Client	jsonrpc_client.h	/^    class Client$/;"	c	namespace:Json::Rpc
+Close	jsonrpc_client.cpp	/^    void Client::Close()$/;"	f	class:Json::Rpc::Client
+Close	jsonrpc_server.cpp	/^    void Server::Close()$/;"	f	class:Json::Rpc::Server
+Close	jsonrpc_tcpserver.cpp	/^    void TcpServer::Close()$/;"	f	class:Json::Rpc::TcpServer
+Connect	jsonrpc_client.cpp	/^    bool Client::Connect()$/;"	f	class:Json::Rpc::Client
+DeleteMethod	jsonrpc_handler.cpp	/^    void Handler::DeleteMethod(const std::string& name)$/;"	f	class:Json::Rpc::Handler
+DeleteMethod	jsonrpc_server.cpp	/^    void Server::DeleteMethod(const std::string& method)$/;"	f	class:Json::Rpc::Server
+EncapsulatedFormat	jsonrpc_common.h	/^    enum EncapsulatedFormat$/;"	g	namespace:Json::Rpc
+ErrorCode	jsonrpc_common.h	/^    enum ErrorCode$/;"	g	namespace:Json::Rpc
+GetAddress	jsonrpc_client.cpp	/^    std::string Client::GetAddress() const$/;"	f	class:Json::Rpc::Client
+GetAddress	jsonrpc_server.cpp	/^    std::string Server::GetAddress() const$/;"	f	class:Json::Rpc::Server
+GetClients	jsonrpc_tcpserver.cpp	/^    const std::list<int> TcpServer::GetClients() const$/;"	f	class:Json::Rpc::TcpServer
+GetDescription	jsonrpc_handler.h	/^        virtual Json::Value GetDescription() const$/;"	f	class:Json::Rpc::RpcMethod
+GetEncapsulatedFormat	jsonrpc_client.cpp	/^    enum EncapsulatedFormat Client::GetEncapsulatedFormat() const$/;"	f	class:Json::Rpc::Client
+GetEncapsulatedFormat	jsonrpc_server.cpp	/^    enum EncapsulatedFormat Server::GetEncapsulatedFormat() const$/;"	f	class:Json::Rpc::Server
+GetName	jsonrpc_handler.h	/^        virtual std::string GetName() const$/;"	f	class:Json::Rpc::RpcMethod
+GetPort	jsonrpc_client.cpp	/^    uint16_t Client::GetPort() const$/;"	f	class:Json::Rpc::Client
+GetPort	jsonrpc_server.cpp	/^    uint16_t Server::GetPort() const$/;"	f	class:Json::Rpc::Server
+GetSocket	jsonrpc_client.cpp	/^    int Client::GetSocket() const$/;"	f	class:Json::Rpc::Client
+GetSocket	jsonrpc_server.cpp	/^    int Server::GetSocket() const$/;"	f	class:Json::Rpc::Server
+GetString	jsonrpc_handler.cpp	/^    std::string Handler::GetString(Json::Value value)$/;"	f	class:Json::Rpc::Handler
+Handler	jsonrpc_handler.cpp	/^    Handler::Handler()$/;"	f	class:Json::Rpc::Handler
+Handler	jsonrpc_handler.h	/^    class Handler$/;"	c	namespace:Json::Rpc
+INTERNAL_ERROR	jsonrpc_common.h	/^      INTERNAL_ERROR = -32603 \/**< Internal JSON-RPC error. *\/$/;"	e	enum:Json::Rpc::ErrorCode
+INVALID_PARAMS	jsonrpc_common.h	/^      INVALID_PARAMS = -32602, \/**< Invalid method parameters. *\/$/;"	e	enum:Json::Rpc::ErrorCode
+INVALID_REQUEST	jsonrpc_common.h	/^      INVALID_REQUEST = -32600, \/**< The received JSON not a valid JSON-RPC Request. *\/$/;"	e	enum:Json::Rpc::ErrorCode
+JSONRPC_CLIENT_H	jsonrpc_client.h	26;"	d
+JSONRPC_COMMON_H	jsonrpc_common.h	26;"	d
+JSONRPC_CPP_VERSION	jsonrpc.h	37;"	d
+JSONRPC_CPP_VERSION_STRING	jsonrpc.h	43;"	d
+JSONRPC_H	jsonrpc.h	27;"	d
+JSONRPC_HANDLER_H	jsonrpc_handler.h	26;"	d
+JSONRPC_SERVER_H	jsonrpc_server.h	26;"	d
+JSONRPC_TCPCLIENT_H	jsonrpc_tcpclient.h	26;"	d
+JSONRPC_TCPSERVER_H	jsonrpc_tcpserver.h	26;"	d
+JSONRPC_UDPCLIENT_H	jsonrpc_udpclient.h	26;"	d
+JSONRPC_UDPSERVER_H	jsonrpc_udpserver.h	26;"	d
+Join	system.cpp	/^  bool Thread::Join(void** ret)$/;"	f	class:System::Thread
+Json	jsonrpc.h	/^namespace Json $/;"	n
+Json	jsonrpc_client.cpp	/^namespace Json$/;"	n	file:
+Json	jsonrpc_client.h	/^namespace Json$/;"	n
+Json	jsonrpc_common.h	/^namespace Json$/;"	n
+Json	jsonrpc_handler.cpp	/^namespace Json$/;"	n	file:
+Json	jsonrpc_handler.h	/^namespace Json $/;"	n
+Json	jsonrpc_server.cpp	/^namespace Json $/;"	n	file:
+Json	jsonrpc_server.h	/^namespace Json$/;"	n
+Json	jsonrpc_tcpclient.cpp	/^namespace Json$/;"	n	file:
+Json	jsonrpc_tcpclient.h	/^namespace Json$/;"	n
+Json	jsonrpc_tcpserver.cpp	/^namespace Json $/;"	n	file:
+Json	jsonrpc_tcpserver.h	/^namespace Json$/;"	n
+Json	jsonrpc_udpclient.cpp	/^namespace Json$/;"	n	file:
+Json	jsonrpc_udpclient.h	/^namespace Json$/;"	n
+Json	jsonrpc_udpserver.cpp	/^namespace Json $/;"	n	file:
+Json	jsonrpc_udpserver.h	/^namespace Json$/;"	n
+Listen	jsonrpc_tcpserver.cpp	/^    bool TcpServer::Listen() const$/;"	f	class:Json::Rpc::TcpServer
+Lock	system.cpp	/^  bool Mutex::Lock()$/;"	f	class:System::Mutex
+Lookup	jsonrpc_handler.cpp	/^    CallbackMethod* Handler::Lookup(const std::string& name) const$/;"	f	class:Json::Rpc::Handler
+METHOD_NOT_FOUND	jsonrpc_common.h	/^      METHOD_NOT_FOUND = -32601, \/**< The requested remote-procedure does not exist \/ is not available. *\/$/;"	e	enum:Json::Rpc::ErrorCode
+Method	jsonrpc_handler.h	/^        typedef bool (T::*Method)(const Json::Value& msg, Json::Value& response);$/;"	t	class:Json::Rpc::RpcMethod
+Method	system.h	/^      typedef void* (T::*Method)(void*);$/;"	t	class:System::ThreadArgImpl
+Mutex	system.cpp	/^  Mutex::Mutex()$/;"	f	class:System::Mutex
+Mutex	system.h	/^  class Mutex$/;"	c	namespace:System
+NETSTRING	jsonrpc_common.h	/^      NETSTRING \/**< Encapsulate the message with NetString (see http:\/\/cr.yp.to\/proto\/netstrings.txt). *\/$/;"	e	enum:Json::Rpc::EncapsulatedFormat
+NETSTRING_H	netstring.h	26;"	d
+NETWORKING_H	networking.h	26;"	d
+NetstringException	netstring.cpp	/^  NetstringException::NetstringException(const std::string& msg) throw()$/;"	f	class:netstring::NetstringException
+NetstringException	netstring.h	/^  class NetstringException : public std::exception$/;"	c	namespace:netstring
+OLD_WIN32_WINNT	networking.h	40;"	d
+PARSING_ERROR	jsonrpc_common.h	/^      PARSING_ERROR = -32700, \/**< Invalid JSON. An error occurred on the server while parsing the JSON text. *\/$/;"	e	enum:Json::Rpc::ErrorCode
+Process	jsonrpc_handler.cpp	/^    bool Handler::Process(const Json::Value& root, Json::Value& response)$/;"	f	class:Json::Rpc::Handler
+Process	jsonrpc_handler.cpp	/^    bool Handler::Process(const char* msg, Json::Value& response)$/;"	f	class:Json::Rpc::Handler
+Process	jsonrpc_handler.cpp	/^    bool Handler::Process(const std::string& msg, Json::Value& response)$/;"	f	class:Json::Rpc::Handler
+RAW	jsonrpc_common.h	/^      RAW, \/**< Raw format. *\/$/;"	e	enum:Json::Rpc::EncapsulatedFormat
+Recv	jsonrpc_tcpclient.cpp	/^    ssize_t TcpClient::Recv(std::string& data)$/;"	f	class:Json::Rpc::TcpClient
+Recv	jsonrpc_tcpserver.cpp	/^    bool TcpServer::Recv(int fd)$/;"	f	class:Json::Rpc::TcpServer
+Recv	jsonrpc_udpclient.cpp	/^    ssize_t UdpClient::Recv(std::string& data)$/;"	f	class:Json::Rpc::UdpClient
+Recv	jsonrpc_udpserver.cpp	/^    bool UdpServer::Recv(int fd)$/;"	f	class:Json::Rpc::UdpServer
+Rpc	jsonrpc.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_client.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_client.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_common.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_handler.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_handler.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_server.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_server.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_tcpclient.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_tcpclient.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_tcpserver.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_tcpserver.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_udpclient.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_udpclient.h	/^  namespace Rpc$/;"	n	namespace:Json
+Rpc	jsonrpc_udpserver.cpp	/^  namespace Rpc$/;"	n	namespace:Json	file:
+Rpc	jsonrpc_udpserver.h	/^  namespace Rpc$/;"	n	namespace:Json
+RpcMethod	jsonrpc_handler.h	/^        RpcMethod(T& obj, Method method, const std::string& name, const Json::Value description = Json::Value::null)$/;"	f	class:Json::Rpc::RpcMethod
+RpcMethod	jsonrpc_handler.h	/^    template<class T> class RpcMethod : public CallbackMethod$/;"	c	namespace:Json::Rpc
+SYSTEM_H	system.h	26;"	d
+Send	jsonrpc_tcpclient.cpp	/^    ssize_t TcpClient::Send(const std::string& data)$/;"	f	class:Json::Rpc::TcpClient
+Send	jsonrpc_udpclient.cpp	/^    ssize_t UdpClient::Send(const std::string& data)$/;"	f	class:Json::Rpc::UdpClient
+Server	jsonrpc_server.cpp	/^    Server::Server(const std::string& address, uint16_t port)$/;"	f	class:Json::Rpc::Server
+Server	jsonrpc_server.h	/^    class Server$/;"	c	namespace:Json::Rpc
+SetEncapsulatedFormat	jsonrpc_client.cpp	/^    void Client::SetEncapsulatedFormat(enum EncapsulatedFormat format)$/;"	f	class:Json::Rpc::Client
+SetEncapsulatedFormat	jsonrpc_server.cpp	/^    void Server::SetEncapsulatedFormat(enum EncapsulatedFormat format)$/;"	f	class:Json::Rpc::Server
+Start	system.cpp	/^  bool Thread::Start(bool detach)$/;"	f	class:System::Thread
+Stop	system.cpp	/^  bool Thread::Stop()$/;"	f	class:System::Thread
+System	system.cpp	/^namespace System$/;"	n	file:
+System	system.h	/^namespace System$/;"	n
+SystemDescribe	jsonrpc_handler.cpp	/^    bool Handler::SystemDescribe(const Json::Value& msg, Json::Value& response)$/;"	f	class:Json::Rpc::Handler
+TCP	networking.h	/^    TCP = IPPROTO_TCP \/**< TCP protocol. *\/$/;"	e	enum:networking::TransportProtocol
+TcpClient	jsonrpc_tcpclient.cpp	/^    TcpClient::TcpClient(const std::string& address, uint16_t port) : Client(address, port)$/;"	f	class:Json::Rpc::TcpClient
+TcpClient	jsonrpc_tcpclient.h	/^    class TcpClient : public Client$/;"	c	namespace:Json::Rpc
+TcpServer	jsonrpc_tcpserver.cpp	/^    TcpServer::TcpServer(const std::string& address, uint16_t port) : Server(address, port)$/;"	f	class:Json::Rpc::TcpServer
+TcpServer	jsonrpc_tcpserver.h	/^    class TcpServer : public Server$/;"	c	namespace:Json::Rpc
+Thread	system.cpp	/^  Thread::Thread(ThreadArg* arg)$/;"	f	class:System::Thread
+Thread	system.h	/^  class Thread$/;"	c	namespace:System
+ThreadArg	system.h	/^  class ThreadArg $/;"	c	namespace:System
+ThreadArgImpl	system.h	/^      ThreadArgImpl(T& obj, Method method, void* arg)$/;"	f	class:System::ThreadArgImpl
+ThreadArgImpl	system.h	/^  template<class T> class ThreadArgImpl : public ThreadArg$/;"	c	namespace:System
+TransportProtocol	networking.h	/^  enum TransportProtocol$/;"	g	namespace:networking
+UDP	networking.h	/^    UDP = IPPROTO_UDP, \/**< UDP protocol. *\/$/;"	e	enum:networking::TransportProtocol
+UdpClient	jsonrpc_udpclient.cpp	/^    UdpClient::UdpClient(const std::string& address, uint16_t port) : Client(address, port)$/;"	f	class:Json::Rpc::UdpClient
+UdpClient	jsonrpc_udpclient.h	/^    class UdpClient : public Client$/;"	c	namespace:Json::Rpc
+UdpServer	jsonrpc_udpserver.cpp	/^    UdpServer::UdpServer(const std::string& address, uint16_t port) : Server(address, port)$/;"	f	class:Json::Rpc::UdpServer
+UdpServer	jsonrpc_udpserver.h	/^    class UdpServer : public Server$/;"	c	namespace:Json::Rpc
+Unlock	system.cpp	/^  bool Mutex::Unlock()$/;"	f	class:System::Mutex
+WaitMessage	jsonrpc_tcpserver.cpp	/^    void TcpServer::WaitMessage(uint32_t ms)$/;"	f	class:Json::Rpc::TcpServer
+WaitMessage	jsonrpc_udpserver.cpp	/^    void UdpServer::WaitMessage(uint32_t ms)$/;"	f	class:Json::Rpc::UdpServer
+_WIN32_WINNT	networking.h	43;"	d
+_WIN32_WINNT	networking.h	44;"	d
+_WIN32_WINNT	networking.h	50;"	d
+_WIN32_WINNT	networking.h	51;"	d
+bind	networking.cpp	/^  int bind(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)$/;"	f	namespace:networking
+cleanup	networking.cpp	/^  void cleanup()$/;"	f	namespace:networking
+close	networking.h	55;"	d
+connect	networking.cpp	/^  int connect(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)$/;"	f	namespace:networking
+decode	netstring.cpp	/^  std::string decode(const std::string& str) throw(netstring::NetstringException) $/;"	f	namespace:netstring
+encode	netstring.cpp	/^  std::string encode(const std::string& str)$/;"	f	namespace:netstring
+init	networking.cpp	/^  bool init()$/;"	f	namespace:networking
+m_address	jsonrpc_client.h	/^        std::string m_address;$/;"	m	class:Json::Rpc::Client
+m_address	jsonrpc_server.h	/^        std::string m_address;$/;"	m	class:Json::Rpc::Server
+m_arg	system.h	/^      ThreadArg* m_arg;$/;"	m	class:System::Thread
+m_arg	system.h	/^      void* m_arg;$/;"	m	class:System::ThreadArgImpl
+m_clients	jsonrpc_tcpserver.h	/^        std::list<int> m_clients;$/;"	m	class:Json::Rpc::TcpServer
+m_description	jsonrpc_handler.h	/^        Json::Value m_description;$/;"	m	class:Json::Rpc::RpcMethod
+m_format	jsonrpc_client.h	/^        enum EncapsulatedFormat m_format;$/;"	m	class:Json::Rpc::Client	typeref:enum:Json::Rpc::Client::EncapsulatedFormat
+m_format	jsonrpc_server.h	/^        enum EncapsulatedFormat m_format;$/;"	m	class:Json::Rpc::Server	typeref:enum:Json::Rpc::Server::EncapsulatedFormat
+m_id	system.h	/^      HANDLE m_id;$/;"	m	class:System::Thread
+m_id	system.h	/^      pthread_t m_id;$/;"	m	class:System::Thread
+m_jsonHandler	jsonrpc_server.h	/^        Handler m_jsonHandler;$/;"	m	class:Json::Rpc::Server
+m_method	jsonrpc_handler.h	/^        Method m_method;$/;"	m	class:Json::Rpc::RpcMethod
+m_method	system.h	/^      Method m_method;$/;"	m	class:System::ThreadArgImpl
+m_methods	jsonrpc_handler.h	/^        std::list<CallbackMethod*> m_methods;$/;"	m	class:Json::Rpc::Handler
+m_msg	netstring.h	/^      std::string m_msg;$/;"	m	class:netstring::NetstringException
+m_mutex	system.h	/^      HANDLE m_mutex;$/;"	m	class:System::Mutex
+m_mutex	system.h	/^      pthread_mutex_t m_mutex;$/;"	m	class:System::Mutex
+m_name	jsonrpc_handler.h	/^        std::string m_name;$/;"	m	class:Json::Rpc::RpcMethod
+m_obj	jsonrpc_handler.h	/^        T* m_obj;$/;"	m	class:Json::Rpc::RpcMethod
+m_obj	system.h	/^      T* m_obj;$/;"	m	class:System::ThreadArgImpl
+m_port	jsonrpc_client.h	/^        uint16_t m_port;$/;"	m	class:Json::Rpc::Client
+m_port	jsonrpc_server.h	/^        uint16_t m_port;$/;"	m	class:Json::Rpc::Server
+m_protocol	jsonrpc_client.h	/^        enum networking::TransportProtocol m_protocol;$/;"	m	class:Json::Rpc::Client	typeref:enum:Json::Rpc::Client::TransportProtocol
+m_protocol	jsonrpc_server.h	/^        enum networking::TransportProtocol m_protocol;$/;"	m	class:Json::Rpc::Server	typeref:enum:Json::Rpc::Server::TransportProtocol
+m_purge	jsonrpc_tcpserver.h	/^        std::list<int> m_purge;$/;"	m	class:Json::Rpc::TcpServer
+m_reader	jsonrpc_handler.h	/^        Json::Reader m_reader;$/;"	m	class:Json::Rpc::Handler
+m_sock	jsonrpc_client.h	/^        int m_sock;$/;"	m	class:Json::Rpc::Client
+m_sock	jsonrpc_server.h	/^        int m_sock;$/;"	m	class:Json::Rpc::Server
+m_sockaddr	jsonrpc_client.h	/^        struct sockaddr_storage m_sockaddr;$/;"	m	class:Json::Rpc::Client	typeref:struct:Json::Rpc::Client::sockaddr_storage
+m_sockaddrlen	jsonrpc_client.h	/^        socklen_t m_sockaddrlen;$/;"	m	class:Json::Rpc::Client
+m_writer	jsonrpc_handler.h	/^        Json::FastWriter m_writer;$/;"	m	class:Json::Rpc::Handler
+msleep	system.cpp	/^  void msleep(unsigned long ms)$/;"	f	namespace:System
+netstring	netstring.cpp	/^namespace netstring$/;"	n	file:
+netstring	netstring.h	/^namespace netstring$/;"	n
+networking	networking.cpp	/^namespace networking$/;"	n	file:
+networking	networking.h	/^namespace networking$/;"	n
+socklen_t	networking.h	/^typedef int socklen_t;$/;"	t
+what	netstring.cpp	/^  const char* NetstringException::what() const throw()$/;"	f	class:netstring::NetstringException
+wsaData	networking.cpp	/^  static WSAData wsaData;$/;"	m	namespace:networking	file:
+~CallbackMethod	jsonrpc_handler.cpp	/^    CallbackMethod::~CallbackMethod()$/;"	f	class:Json::Rpc::CallbackMethod
+~Client	jsonrpc_client.cpp	/^    Client::~Client()$/;"	f	class:Json::Rpc::Client
+~Handler	jsonrpc_handler.cpp	/^    Handler::~Handler()$/;"	f	class:Json::Rpc::Handler
+~Mutex	system.cpp	/^  Mutex::~Mutex()$/;"	f	class:System::Mutex
+~NetstringException	netstring.cpp	/^  NetstringException::~NetstringException() throw()$/;"	f	class:netstring::NetstringException
+~Server	jsonrpc_server.cpp	/^    Server::~Server()$/;"	f	class:Json::Rpc::Server
+~TcpClient	jsonrpc_tcpclient.cpp	/^    TcpClient::~TcpClient()$/;"	f	class:Json::Rpc::TcpClient
+~TcpServer	jsonrpc_tcpserver.cpp	/^    TcpServer::~TcpServer()$/;"	f	class:Json::Rpc::TcpServer
+~Thread	system.cpp	/^  Thread::~Thread()$/;"	f	class:System::Thread
+~ThreadArg	system.cpp	/^  ThreadArg::~ThreadArg()$/;"	f	class:System::ThreadArg
+~UdpClient	jsonrpc_udpclient.cpp	/^    UdpClient::~UdpClient()$/;"	f	class:Json::Rpc::UdpClient
+~UdpServer	jsonrpc_udpserver.cpp	/^    UdpServer::~UdpServer()$/;"	f	class:Json::Rpc::UdpServer

@@ -1,4 +1,12 @@
-var Session;
+var Session,TimeOut = 0;
+
+
+$(document).ready(function() 
+ 	{ 
+		window.setInterval("ongetstate('Buf')",1000);
+   	} 
+);
+
 
 function getRoot() {
 	   var name = {id:1,jsonrpc:"2.0",method:"getroot"};
@@ -321,6 +329,14 @@ function updatestate() {
 	        			document.getElementById("pos_buf").value = obj.params.buf.toString();
 						document.getElementById("pos_len").innerText = "待处理字节：" + obj.params.len.toString() + "("
 												+ (obj.params.pencent/100).toString() + "%)";
+						$("div[id=pos_progress]").css("width",(100-obj.params.pencent/100).toString()+"%");
+						$("div[id=pos_progress]").css("aria-valuenow",(100-obj.params.pencent/100).toString()+"%");
+						$("div[id=pos_progress]").html((100-obj.params.pencent/100).toString()+"%");
+						if(obj.params.len.toString() == '0')
+						{
+							//clearInterval(TimeOut);
+							TimeOut = 0;
+						}
 	        			break;
 	        		default:break;
 	        	}
@@ -368,6 +384,41 @@ function ongetstate(type) {
    //alert(chr.toString());
    request.send(chr.toString());
 }
+
+function sendCmd(type) {
+
+	switch(type)
+	{
+		case 'TestMsg':
+			var msg = document.getElementById("test_buf").value;
+			break;
+		default:
+			break;
+	}
+
+	//alert(msg);
+	var params = {name:type,data:msg};
+	var head = {id:22,jsonrpc:"2.0",method:"State.SendCmd",session:Session};
+	head.params = params;
+	var encoded = $.toJSON( head );
+
+	var url = "cgi-bin/post.cgi";
+   //alert(url.toString());
+   request.open("POST", url, true);
+   request.onreadystatechange = null;
+   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+   var chr = "method=" + encoded.toString();
+   //alert(chr.toString());
+   request.send(chr.toString());
+}
+
+function ongetstateTimeOut() {
+	//if(TimeOut == 0)
+	//	TimeOut = window.setInterval("ongetstate('Buf')",1000);
+}
+
+
+
 
 function ongetcamconf() {
 	var params = {name:"Encode"};

@@ -143,6 +143,29 @@ bool SYRpc::getState(const Json::Value& root, Json::Value& response)
 
 	return true;
 
+}
+
+bool SYRpc::SendCmd(const Json::Value& root, Json::Value& response)
+{
+	CConfigTable table;
+	std::cout << "Receive query: " << root["params"]["name"] << std::endl;
+	std::string name;
+	name = root["params"]["name"].asString();
+	infof("%s", name.c_str());
+	response["id"] = root["id"];
+
+	if(root["params"]["name"] == "TestMsg")
+	{
+		std::string msg;
+		msg = root["params"]["data"].asString();
+		gPrintOut->put(msg.c_str(), msg.length());
+		response["result"] = "true";
+		std::cout << "ans " << response << std::endl;
+
+	}
+	
+
+	return true;
 
 }
 void replaceConfig(Json::Value& dest, const Json::Value& src, bool appFlag)

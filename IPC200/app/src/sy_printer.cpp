@@ -1,7 +1,9 @@
 #include "sy_printer.h"
+#include "base/sy_types.h"
+#include "base/sy_debug.h"
 
 
-char Welcome[] = "/******************************/\r\n/*****欢迎使用打印服务系统*****/\r\n";
+const char Welcome[] = "/******************************/\r\n/*****欢迎使用打印服务系统*****/\r\n";
 IPrinter::IPrinter(int type, CConfigTable& tb):m_mutex(CMutex::mutexRecursive)
 {
 	this->rd=0;
@@ -9,7 +11,8 @@ IPrinter::IPrinter(int type, CConfigTable& tb):m_mutex(CMutex::mutexRecursive)
 	this->fullflag=false;
 	this->loopflag= true;
 	this->mtype = type;
-	if(this->mtype == 1)//测试的是输出打印机
+	//std::cout <<  tb << std::endl;
+	if(this->mtype == 1 && tb["welcomeauto"].asString() == "wyes")//测试的是输出打印机
 	{
 		this->put(Welcome, sizeof(Welcome));
 	}
@@ -48,7 +51,7 @@ bool IPrinter::setIP(char* ip)
 }
 
 
-bool IPrinter::put(char* dat,int len)
+bool IPrinter::put(const char* dat,int len)
 {
 	if(this->left() < len)
 	{

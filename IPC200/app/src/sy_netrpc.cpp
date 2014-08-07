@@ -50,6 +50,7 @@ CNetRpc::CNetRpc() : server(std::string("127.0.0.1"), 8086)
 	server.AddMethod(new Json::Rpc::RpcMethod<SYRpc>(m_a, &SYRpc::MCtrlMedia, std::string("Media.ctrlMedia")));
 
 	server.AddMethod(new Json::Rpc::RpcMethod<SYRpc>(m_a, &SYRpc::getState, std::string("State.getState")));
+	server.AddMethod(new Json::Rpc::RpcMethod<SYRpc>(m_a, &SYRpc::SendCmd, std::string("State.SendCmd")));
 
 	if(!server.Bind())
 	{
